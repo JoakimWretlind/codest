@@ -17,33 +17,40 @@ Do not spend more than two hours on this assignment. Keep it simple!
 ---
 ### First Commit:
 
-1. **Updating react and adding styled-components.**
-2. **Renamimg files to .jsx for additional possibilities. (Not really needed here. More that I'm used to writing in jsx.).**
-3. **Splitting code in a components folder.**
-4. **Re-writing the index-file.**
-5. **Basic styling and so far no errors or warnings - also no functions**
+1. Updating react and adding styled-components.
+2. Renamimg files to .jsx for additional possibilities. (Not really needed here. More that I'm used to writing in jsx.).
+3. Splitting code in a components folder.
+4. Re-writing the index-file.
+5. Basic styling and so far no errors or warnings - also no functions
 
 ### Second Commit:
-1. **Rewriting, but still keeping the functions to get items from localStorage. Both for the movielist and watched movies. Might have to be changed.**
-2. **Rewriting the Form.**
-3. **Checking so that the movies gets displayed in watchlist when page is loaded.**
+1. Rewriting, but still keeping the functions to get items from localStorage. Both for the movielist and watched movies. Might have to be changed.
+2. Rewriting the Form.
+3. Checking so that the movies gets displayed in watchlist when page is loaded.
 
 ### Third Commit:
-1. **Created a card-component to display the movies.**
-2. **Made the function to add movies from form working. Used the previous add-function as base.**
-3. **Added a clear-form function (got annoyed with old input hanging around when testing).**
+1. Created a card-component to display the movies.
+2. Made the function to add movies from form working. Used the previous add-function as base.
+3. Added a clear-form function (got annoyed with old input hanging around when testing).
 
 ### Fourth Commit:
-1. **Added function to add movies to already watched.**
-2. **Reusing the same card used in watchlist.**
+1. Added function to add movies to already watched.
+2. Reusing the same card used in watchlist.
 
 ### Fifth Commit:
-1. **Functions to remove movies**
+1. Functions to remove movies
 
 ### Sixth Commit:
-1. **Made buttons in watchlist to disabled when clicked to avoid same movies as watched multiple times.**
-2. **Corrected a misstake in the remove function for already watched movies.**
+1. Made buttons in watchlist to disabled when clicked to avoid same movies as watched multiple times.
+2. Corrected a misstake in the remove function for already watched movies.
 
 ### Seventh Commit:
-1. **Crated a footer just for the fun of it**
-2. **Realized I have made a misstake which is too late to correct.**
+1. Crated a footer just for the fun of it
+2. Realized I have made a misstake which is too late to correct.
+
+### Eighth Commit:
+1. Styled the readme a bit.
+2. Added how to run the application.
+</br>
+## To run:
+$ yarn start
