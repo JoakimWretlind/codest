@@ -24,6 +24,7 @@ function App() {
       {
         id: 3,
         title: 'Hot Tub Time Machine',
+        // I changed the url to one that worked. Another solution would be an error-handler
         image: 'https://images.fanart.tv/fanart/hot-tub-time-machine-53ee1be0c6d3e.jpg',
         comment: 'Someone said this was fun. Maybe!'
       },
@@ -46,6 +47,12 @@ function App() {
     setMovies([{ id: Date.now(), title: title, comment: comment, image: image }, ...movies])
   }
 
+  // when user removes a movie from the watchlist
+  const removeHandler = (movieID) => {
+    const updateMovies = movies.filter(item => item.id !== movieID)
+    setMovies(updateMovies)
+  }
+
   /******* ALREADY WATCHED *******/
   // When user adds a movie as already watched
   const watchedHandler = (movieID) => {
@@ -64,6 +71,12 @@ function App() {
     setWatched([targetMovie, ...watched])
   }
 
+  // when user removes a watched movie
+  const removeWatchedHandler = (movieID) => {
+    const updateMovies = movies.filter(item => item.id !== movieID)
+    setWatched(updateMovies)
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -73,9 +86,11 @@ function App() {
         <Watchlist
           movies={movies}
           watchedHandler={watchedHandler}
+          removeHandler={removeHandler}
         />
         <WatchedMovies
           watched={watched}
+          removeWatchedHandler={removeWatchedHandler}
         />
       </MainWrapper>
     </>

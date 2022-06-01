@@ -1,7 +1,7 @@
-import { CardItem, ImgWrapper, Img, Title, P, ButtonContainer } from "./style"
+import { CardItem, ImgWrapper, Img, Title, P, ButtonContainer, RemoveIcon } from "./style"
 import { Button } from "../../../styles/mainStyles"
 
-export const Card = ({ id, title, image, comment, watchedHandler }) => {
+export const Card = ({ id, title, image, comment, watchedHandler, removeHandler, removeWatchedHandler }) => {
     return (
         <CardItem key={id}>
             <ImgWrapper>
@@ -11,7 +11,10 @@ export const Card = ({ id, title, image, comment, watchedHandler }) => {
             <P>{comment}</P>
             <ButtonContainer>
                 <Button onClick={() => watchedHandler(id)}>already watched</Button>
-
+                {removeHandler ?
+                    <RemoveIcon type="button" onClick={() => removeHandler(id)} /> :
+                    <RemoveIcon type="button" onClick={() => removeWatchedHandler(id)} />
+                }
             </ButtonContainer>
         </CardItem >
     )

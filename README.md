@@ -36,3 +36,6 @@ Do not spend more than two hours on this assignment. Keep it simple!
 ### Fourth Commit:
 1. **Added function to add movies to already watched.**
 2. **Reusing the same card used in watchlist.**
+
+### Fifth Commit:
+1. **Functions to remove movies**
