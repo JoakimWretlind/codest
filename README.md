@@ -39,3 +39,7 @@ Do not spend more than two hours on this assignment. Keep it simple!
 
 ### Fifth Commit:
 1. **Functions to remove movies**
+
+### Sixth Commit:
+1. **Made buttons in watchlist to disabled when clicked to avoid same movies as watched multiple times.**
+2. **Corrected a misstake in the remove function for already watched movies.**

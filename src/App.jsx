@@ -73,8 +73,8 @@ function App() {
 
   // when user removes a watched movie
   const removeWatchedHandler = (movieID) => {
-    const updateMovies = movies.filter(item => item.id !== movieID)
-    setWatched(updateMovies)
+    const updatedMovies = watched.filter(item => item.id !== movieID)
+    setWatched(updatedMovies)
   }
 
   return (
