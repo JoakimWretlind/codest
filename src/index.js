@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+/**
+ * This file should be as clean as possible, basically only containing the render-function.
+ * (some other things, like routing for example, can be added. But the main guidline is - keep it clean).
+ */
+
 export function getWatchedMovies() {
 	var movies = localStorage.getItem('movies-watched');
 
@@ -13,32 +18,40 @@ export function getWatchedMovies() {
 	}
 }
 
+/**
+ * If possible, avoid if/else. Sometimes you can get away with just a 'if', given you ask the true and don't
+ * have to return anything if false.
+ */
 export function getAllMovies() {
 	var movies = localStorage.getItem('movies-all');
 
 	if (!movies) {
 		return [
-		{
-			title: 'The Avengers',
-			image: 'http://d21lz9b0v8r1zn.cloudfront.net/wp-content/uploads//2012/03/detail.jpg',
-			comment: 'New York blows up in this!'
-		},
-		{
-			title: 'Dark City',
-			image: 'https://i.chzbgr.com/full/5569379584/hA96709E0/',
-			comment: 'This looks mysterious. Cool!'
-		},
-		{
-			title: 'Hot Tub Time Machine',
-			image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7vNmphIcVhEcybvSvMgbTkV6EE2twHBNanKvgDx3ZS7Ivn6Dtg',
-			comment: 'Someone said this was fun. Maybe!'
-		},
+			{
+				title: 'The Avengers',
+				image: 'http://d21lz9b0v8r1zn.cloudfront.net/wp-content/uploads//2012/03/detail.jpg',
+				comment: 'New York blows up in this!'
+			},
+			{
+				title: 'Dark City',
+				image: 'https://i.chzbgr.com/full/5569379584/hA96709E0/',
+				comment: 'This looks mysterious. Cool!'
+			},
+			{
+				title: 'Hot Tub Time Machine',
+				image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7vNmphIcVhEcybvSvMgbTkV6EE2twHBNanKvgDx3ZS7Ivn6Dtg',
+				comment: 'Someone said this was fun. Maybe!'
+			},
 		];
 	} else {
 		return JSON.parse(movies);
 	}
 }
 
+/**
+ * React is based on re-usable components, which will not work very well with the render-function - something that will become
+ * clear when we split the code into components (and things no longer will work as expected).
+ */
 export function add(title, description, image) {
 	var movie = {};
 	movie.title = title;
@@ -67,11 +80,14 @@ export function addWatchedMovie(title, description, image) {
 	render();
 }
 
+/**
+ * Even tho for-loops work, .map() is often preffered
+ */
 export function removeWatchedMovie(title) {
 	var movies = getWatchedMovies();
 
 	for (var i = 0; i < movies.length; i++) {
-	   if (!movies[i]) continue;
+		if (!movies[i]) continue;
 		if (movies[i].title == title) {
 			movies[i] = null
 		}
