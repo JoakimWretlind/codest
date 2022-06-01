@@ -32,3 +32,7 @@ Do not spend more than two hours on this assignment. Keep it simple!
 1. **Created a card-component to display the movies.**
 2. **Made the function to add movies from form working. Used the previous add-function as base.**
 3. **Added a clear-form function (got annoyed with old input hanging around when testing).**
+
+### Fourth Commit:
+1. **Added function to add movies to already watched.**
+2. **Reusing the same card used in watchlist.**

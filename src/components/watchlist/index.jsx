@@ -2,7 +2,7 @@ import { MovieSection, Section } from '../../styles/mainStyles'
 import { Card } from '../ui/card'
 
 // Changed from h1 to h2
-export const Watchlist = ({ movies }) => {
+export const Watchlist = ({ movies, watchedHandler }) => {
     return (
         <Section>
             <h2>watchlist:</h2>
@@ -16,6 +16,8 @@ export const Watchlist = ({ movies }) => {
                             title={title}
                             image={image}
                             comment={comment}
+                            watchedHandler={() => watchedHandler(id)}
+
                         />
                     )
                 })}

@@ -1,40 +1,41 @@
 import { useState } from "react";
-import { FormSection, Label } from "./style";
+import { FormSection, Label } from './style'
+import { Button } from "../../styles/mainStyles";
 
-// I switched the order between comment and url, becaus I feel this to be more logic
-// rewrite the functions to arrow-functions
-// set input characters to max 75 for the comments
-// change input type="button" to a real button
+// A basic form where we pass the state of the values via the onSubmit-function
 export const Form = ({ onSubmit }) => {
     const [title, setTitle] = useState('')
     const [comment, setComment] = useState('')
     const [image, setImage] = useState('')
 
-    // clear the form after submit
+    // Clear the form when submitted
+    // we can't set this at once, since we have to pass the values
+    // to the onSubmit function
     const clearForm = () => {
         setTimeout(() => {
             setTitle('')
             setComment('')
             setImage('')
-        }, 300)
+        }, 300) // time can be set to very low if you wish, but I think this was nice
     }
+
+    // we set the max character input for comments to 75
     return (
         <FormSection onSubmit={e => { e.preventDefault(); onSubmit(title, comment, image) }}>
-            <h1>Add movie!</h1>
             <Label>
                 title:
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                <input value={title} onChange={e => setTitle(e.target.value)} />
             </Label>
             <Label>
                 comment:
-                <input type="text" maxLength={75} value={comment} onChange={e => setComment(e.target.value)} />
+                <input maxLength={75} value={comment} onChange={e => setComment(e.target.value)} />
             </Label>
             <Label>
                 image url:
-                <input type="text" value={image} onChange={e => setImage(e.target.value)} />
+                <input value={image} onChange={e => setImage(e.target.value)} />
             </Label>
 
-            <button className="form" type="submit" onClick={clearForm}>Submit</button>
-        </FormSection>
+            <Button className="form" type="submit" onClick={clearForm}>Submit</Button>
+        </FormSection >
     )
 }

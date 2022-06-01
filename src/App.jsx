@@ -1,15 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GlobalStyle } from './styles/globalStyle'
 import { MainWrapper } from './styles/mainStyles'
 import { Form } from './components/form'
 import { Watchlist } from './components/watchlist'
 import { WatchedMovies } from './components/watched'
+
 function App() {
-  // Get items from localStrage
-  const [watched, setWatched] = useState(() => JSON.parse(localStorage.getItem('watched-movies'))) // rewriting the getWatchedMovies function
-  const [movies, setMovies] = useState(() => JSON.parse(localStorage.getItem('all-movies')) ||
-    // rewrote the getAllMovies in the same style as the getWatchedMovies.
-    // Added an id, and changed the url for the last object.
+  const [watched, setWatched] = useState(() => JSON.parse(localStorage.getItem('watched-movies')) || [])
+  const [movies, setMovies] = useState(() => JSON.parse(localStorage.getItem("all-movies")) ||
     [
       {
         id: 1,
@@ -30,11 +28,40 @@ function App() {
         comment: 'Someone said this was fun. Maybe!'
       },
     ]
-  )
+  );
 
+  // Initialize localStorage for all movies
+  useEffect(() => {
+    localStorage.setItem('all-movies', JSON.stringify(movies))
+  }, [movies])
+
+  // Initialize localStorage for watched movies
+  useEffect(() => {
+    localStorage.setItem('watched-movies', JSON.stringify(watched))
+  }, [watched])
+
+  /******* WATCHLIST *******/
   // When user adds a movie to the watchlist
   const submitHandler = (title, comment, image) => {
     setMovies([{ id: Date.now(), title: title, comment: comment, image: image }, ...movies])
+  }
+
+  /******* ALREADY WATCHED *******/
+  // When user adds a movie as already watched
+  const watchedHandler = (movieID) => {
+    const movieTarget = movies.findIndex(item => item.id === movieID)
+    const duplicatedMovies = [...movies]
+
+    duplicatedMovies[movieTarget] = {
+      id: duplicatedMovies[movieTarget].id,
+      title: duplicatedMovies[movieTarget].title,
+      image: duplicatedMovies[movieTarget].image,
+      comment: duplicatedMovies[movieTarget].comment
+    }
+
+    const targetMovie = duplicatedMovies[movieTarget]
+
+    setWatched([targetMovie, ...watched])
   }
 
   return (
@@ -45,8 +72,11 @@ function App() {
         <Form onSubmit={submitHandler} />
         <Watchlist
           movies={movies}
+          watchedHandler={watchedHandler}
         />
-        <WatchedMovies />
+        <WatchedMovies
+          watched={watched}
+        />
       </MainWrapper>
     </>
   );
