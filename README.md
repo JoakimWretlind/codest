@@ -22,4 +22,8 @@ Do not spend more than two hours on this assignment. Keep it simple!
 3. **Splitting code in a components folder.**
 4. **Re-writing the index-file.**
 5. **Basic styling and so far no errors or warnings - also no functions**
- 
+
+### Second Commit:
+1. **Rewriting, but still keeping the functions to get items from localStorage. Both for the movielist and watched movies. Might have to be changed.**
+2. **Rewriting the Form.**
+3. **Checking so that the movies gets displayed in watchlist when page is loaded.**

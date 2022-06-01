@@ -1,19 +1,31 @@
-import React from 'react'
+import { useState } from "react";
+import { FormSection, Label } from "./style";
 
-import { add } from '../temp';
-
-export const Form = () => {
+// I switched the order between comment and url, becaus I feel this to be more logic
+// rewrite the functions to arrow-functions
+// set input characters to max 75 for the comments
+// change input type="button" to a real button
+export const Form = ({ onSubmit }) => {
+    const [title, setTitle] = useState('')
+    const [comment, setComment] = useState('')
+    const [image, setImage] = useState('')
     return (
-        <>
+        <FormSection onSubmit={e => { e.preventDefault(); onSubmit(title, comment, image) }}>
             <h1>Add movie!</h1>
-            <b>TITLE:<br /><input type="text" onChange={function (e) { title = e.target.value; }} /></b><br />
-            <b>IMAGE URL:<br /><input type="text" onChange={function (e) { image = e.target.value; }} /></b><br />
-            <b>COMMENT:<br /><input type="text" onChange={function (e) { comment = e.target.value; }} /></b><br />
-            {/* <input type="button" onClick={function (e) { add(title, image, comment); }} value="ADD MOVIE" /> */}
+            <Label>
+                title:
+                <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+            </Label>
+            <Label>
+                comment:
+                <input type="text" maxLength={75} value={comment} onChange={e => setComment(e.target.value)} />
+            </Label>
+            <Label>
+                image url:
+                <input type="text" value={image} onChange={e => setImage(e.target.value)} />
+            </Label>
 
-        </>
+            <button className="form" type="submit">Submit</button>
+        </FormSection>
     )
 }
-var title = '';
-var image = '';
-var comment = '';

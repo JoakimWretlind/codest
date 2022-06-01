@@ -1,10 +1,20 @@
 import { MovieSection, Section } from '../../styles/mainStyles'
 
-export const Watchlist = () => {
+// Changed from h1 to h2
+export const Watchlist = ({ movies }) => {
     return (
         <Section>
-            <h1>watchlist:</h1>
-            <MovieSection></MovieSection>
+            <h2>watchlist:</h2>
+            <MovieSection>
+                {movies.map(movie => {
+                    const { id, title } = movie
+                    return (
+                        <div key={id}>
+                            <h5>{title}</h5>
+                        </div>
+                    )
+                })}
+            </MovieSection>
         </Section>
     )
 }
