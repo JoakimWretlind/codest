@@ -43,3 +43,7 @@ Do not spend more than two hours on this assignment. Keep it simple!
 ### Sixth Commit:
 1. **Made buttons in watchlist to disabled when clicked to avoid same movies as watched multiple times.**
 2. **Corrected a misstake in the remove function for already watched movies.**
+
+### Seventh Commit:
+1. **Crated a footer just for the fun of it**
+2. **Realized I have made a misstake which is too late to correct.**

@@ -4,6 +4,7 @@ import { MainWrapper } from './styles/mainStyles'
 import { Form } from './components/form'
 import { Watchlist } from './components/watchlist'
 import { WatchedMovies } from './components/watched'
+import { Footer } from './components/footer'
 
 function App() {
   const [watched, setWatched] = useState(() => JSON.parse(localStorage.getItem('watched-movies')) || [])
@@ -73,6 +74,9 @@ function App() {
 
   // when user removes a watched movie
   const removeWatchedHandler = (movieID) => {
+    // this will not work correct since we can have double items in the local storage.
+    // This proves I should've done it correct from the start, and/or used the original
+    // code more. Too bad time is up.
     const updatedMovies = watched.filter(item => item.id !== movieID)
     setWatched(updatedMovies)
   }
@@ -92,6 +96,7 @@ function App() {
           watched={watched}
           removeWatchedHandler={removeWatchedHandler}
         />
+        <Footer />
       </MainWrapper>
     </>
   );
