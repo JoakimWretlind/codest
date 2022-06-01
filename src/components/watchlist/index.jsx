@@ -1,4 +1,5 @@
 import { MovieSection, Section } from '../../styles/mainStyles'
+import { Card } from '../ui/card'
 
 // Changed from h1 to h2
 export const Watchlist = ({ movies }) => {
@@ -7,11 +8,15 @@ export const Watchlist = ({ movies }) => {
             <h2>watchlist:</h2>
             <MovieSection>
                 {movies.map(movie => {
-                    const { id, title } = movie
+                    const { id, title, comment, image } = movie
                     return (
-                        <div key={id}>
-                            <h5>{title}</h5>
-                        </div>
+                        <Card
+                            key={id}
+                            id={id}
+                            title={title}
+                            image={image}
+                            comment={comment}
+                        />
                     )
                 })}
             </MovieSection>

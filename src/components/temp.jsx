@@ -1,18 +1,4 @@
 
-export function add(title, description, image) {
-    var movie = {};
-    movie.title = title;
-    movie.description = description;
-    movie.image = image;
-
-    var movies = getAllMovies();
-    movies.push(movie);
-
-    localStorage.setItem('movies-all', JSON.stringify(movies));
-
-
-}
-
 export function addWatchedMovie(title, description, image) {
     var movie = {};
     movie.title = title;

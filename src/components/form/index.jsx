@@ -9,6 +9,15 @@ export const Form = ({ onSubmit }) => {
     const [title, setTitle] = useState('')
     const [comment, setComment] = useState('')
     const [image, setImage] = useState('')
+
+    // clear the form after submit
+    const clearForm = () => {
+        setTimeout(() => {
+            setTitle('')
+            setComment('')
+            setImage('')
+        }, 300)
+    }
     return (
         <FormSection onSubmit={e => { e.preventDefault(); onSubmit(title, comment, image) }}>
             <h1>Add movie!</h1>
@@ -25,7 +34,7 @@ export const Form = ({ onSubmit }) => {
                 <input type="text" value={image} onChange={e => setImage(e.target.value)} />
             </Label>
 
-            <button className="form" type="submit">Submit</button>
+            <button className="form" type="submit" onClick={clearForm}>Submit</button>
         </FormSection>
     )
 }

@@ -32,7 +32,10 @@ function App() {
     ]
   )
 
-  const submitHandler = () => { }
+  // When user adds a movie to the watchlist
+  const submitHandler = (title, comment, image) => {
+    setMovies([{ id: Date.now(), title: title, comment: comment, image: image }, ...movies])
+  }
 
   return (
     <>

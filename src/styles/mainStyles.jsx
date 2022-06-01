@@ -39,3 +39,28 @@ export const MovieSection = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+/** BUTTONS AND EXTRAS **/
+export const Button = styled.button`
+    outline: none;
+    border: .1rem solid rgba(0,0,0,.2);
+    padding: .5rem 1.2rem .4rem;
+    border-radius: .7rem;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    box-shadow: 0 .1rem .4rem rgba(0,0,17,.2);
+    transition: .25 ease;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0 0rem 0rem rgba(0,0,17,.2);
+        background-color: #fafafa;
+        transform: translateY(.1rem);
+        background-color: #f1f1f1;
+        color: #333;
+    }
+    &:active{
+        background-color: #7575ff;
+        color: #f1f1f1;
+    }
+`;

@@ -27,3 +27,8 @@ Do not spend more than two hours on this assignment. Keep it simple!
 1. **Rewriting, but still keeping the functions to get items from localStorage. Both for the movielist and watched movies. Might have to be changed.**
 2. **Rewriting the Form.**
 3. **Checking so that the movies gets displayed in watchlist when page is loaded.**
+
+### Third Commit:
+1. **Created a card-component to display the movies.**
+2. **Made the function to add movies from form working. Used the previous add-function as base.**
+3. **Added a clear-form function (got annoyed with old input hanging around when testing).**
